@@ -4,6 +4,7 @@ import numpy as np
 import base64
 import easyocr
 import re
+const port = process.env.PORT || 4000;
 
 app = Flask(__name__)
 
