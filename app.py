@@ -4,7 +4,7 @@ import numpy as np
 import base64
 import easyocr
 import re
-const port = process.env.PORT || 4000;
+import os
 
 app = Flask(__name__)
 
@@ -99,5 +99,5 @@ def recognize_plate():
     return jsonify({"image": img_str, "plateNumber": plate_number_str})
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
-
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
